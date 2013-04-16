@@ -1,11 +1,9 @@
 class Interface{
     public static void main(String args[]){
-        QuestionLoader ql=new QuestionLoader();
-        Question q=ql.read();
-        Question q2=ql.read();
-        q.display();
-        q2.display();
-        
+QuestionDeck qd=new QuestionDeck();
+qd.fill();
+Question q1=qd.get();
+q1.display();
     }
     
 }

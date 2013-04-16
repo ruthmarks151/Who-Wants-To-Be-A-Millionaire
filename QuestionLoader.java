@@ -11,8 +11,11 @@ class QuestionLoader{
             System.out.println("Question file not found");
         }
     }
-    
-    public Question read(){
+    private void checkEOF(int read) throws IOException{
+    if (read==-1)
+      throw new IOException();
+    }
+    public Question read() throws IOException{
         //From the way the question is built they must start defined as null
         String question="";
         String category="";
@@ -23,30 +26,35 @@ class QuestionLoader{
             answers[i]="";}
         int read;
         
-        try{
             //Build value
+
             while ((read=in.read())!=(int)'\n'){//Runs until newline
-                value+=(char)read;//Builds the string char by char
+              checkEOF(read);  
+              value+=(char)read;//Builds the string char by char
             }
             points=Integer.parseInt(value);
+            
             //Build the category
             while ((read=in.read())!=(int)'\n'){//Runs until newline
+                            checkEOF(read);  
                 category+=(char)read;//Builds the string char by char
             }
+
             //Build the question
             while ((read=in.read())!=(int)'\n'){//Runs until newline
+                            checkEOF(read);  
                 question+=(char)read;//Builds the string char by char
             }
             //Build all 4 answers
             for (int i=0;i<4;i++){//For each answer
                 while ((read=in.read())!=(int)'\n'){//Builds the string char by char
+                                checkEOF(read);  
                     answers[i]+=(char)read;
                 }
             }
             read=in.read();
-            
-        }
-        catch(IOException e) {}
+            checkEOF(read);  
+       
         System.out.println("Creating question!");
         Question q= new Question(points,category,question,answers,0);//construct a question object
         

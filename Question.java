@@ -14,8 +14,8 @@ class Question{
         question=givenQuestion;
         rightAnswer=givenRight;
         answers=givenAnswers;
-        for (int i=0;i<10;i++){
-            shuffle();}
+        for (int i=0;i<4;i++){
+          shuffle();}
     }
     
     public void display (){
@@ -29,7 +29,7 @@ class Question{
     }
     
     public void shuffle(){
-        
+      
         int swap1=(int)(Math.random()*4);
         int swap2=(int)(Math.random()*4);
         //System.out.println("EVERYDAY IM SHUFFLIN\n"+swap1+" and "+swap2+" swapped");
