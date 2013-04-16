@@ -1,0 +1,6 @@
+class Question (){
+protected String question;
+protected String[] answer;
+protected int answer;
+protected boolean lockin;
+}

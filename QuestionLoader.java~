@@ -1,0 +1,32 @@
+Class QuestionLoader{
+FileReader in;
+  QuestionLoader (){
+       in = new FileReader("A-large.in");
+
+  }
+  
+  public static String questionRead(FileReader in){
+    
+    String question;
+    String []answer=new String [4];
+    int read;
+    
+    try{
+        while ((read=in.read())!=(int)'\n'){
+            question+=(char)read
+        }
+        
+        
+        for (int i=0;i<4;i++){
+            while ((read=in.read())!=(int)'\n'){
+                answer[i]+=(char)read
+            }
+        }
+        
+    }
+    catch(IOException e) {}
+    
+    return ;
+}
+
+}
