@@ -2,13 +2,13 @@ import java.io.*;
 class QuestionLoader{
     protected FileReader in;
     QuestionLoader (){
-                System.out.println("Constructoring!");  
-      try{
-          System.out.println("Making file reader");
+        System.out.println("Constructoring Question loader!");
+        try{
+            System.out.println("Making file reader");
             in = new FileReader("questionsformat.txt");//
         }
         catch(IOException e) {
-        System.out.println("Question file not found");
+            System.out.println("Question file not found");
         }
     }
     
@@ -53,6 +53,6 @@ class QuestionLoader{
         return q;//Return it
     }
     
-
+    
     
 }

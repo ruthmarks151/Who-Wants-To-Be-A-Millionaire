@@ -1,18 +1,18 @@
 200
 Catergory
 Question
-Right Answer
-wrong answer
-wrong answer
-wrong answer
+Right Answer0
+wrong answer1
+wrong answer2
+wrong answer3
 
 400
 Computer Science
 What is the term for an instantiation of a class?
 Object
-instance
+Instance
 Function
-traits
+Traits
 
 800
 Catergory
