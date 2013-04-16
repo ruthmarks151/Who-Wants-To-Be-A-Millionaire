@@ -2,7 +2,9 @@ import java.io.*;
 class QuestionLoader{
     protected FileReader in;
     QuestionLoader (){
-        try{
+                System.out.println("Constructoring!");  
+      try{
+          System.out.println("Making file reader");
             in = new FileReader("questionsformat.txt");//
         }
         catch(IOException e) {
@@ -11,7 +13,7 @@ class QuestionLoader{
     }
     
     public Question read(){
-        //From the way the question is built they must strt defined as null
+        //From the way the question is built they must start defined as null
         String question="";
         String category="";
         String value="";
@@ -45,9 +47,12 @@ class QuestionLoader{
             
         }
         catch(IOException e) {}
+        System.out.println("Creating question!");
         Question q= new Question(points,category,question,answers,0);//construct a question object
         
         return q;//Return it
     }
+    
+
     
 }

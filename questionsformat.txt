@@ -7,12 +7,12 @@ wrong answer
 wrong answer
 
 400
-Catergory
-Question
-Right Answer
-wrong answer
-wrong answer
-wrong answer
+Computer Science
+What is the term for an instantiation of a class?
+Object
+instance
+Function
+traits
 
 800
 Catergory
