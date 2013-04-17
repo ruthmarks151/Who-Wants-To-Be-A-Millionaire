@@ -4,6 +4,7 @@ class QuestionDeck{
 protected Question[] deck;
 protected QuestionLoader ql;
 private boolean doneLoading;
+
 QuestionDeck() {
   doneLoading=false;
   deck=new Question[1];
