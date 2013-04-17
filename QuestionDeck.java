@@ -1,5 +1,6 @@
 import java.io.*;
 import java.lang.Math;
+
 class QuestionDeck{
 protected Question[] deck;
 protected QuestionLoader ql;
