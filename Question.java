@@ -18,6 +18,14 @@ class Question{
           shuffle();}
     }
     
+    public int value(){
+    return points;
+    }
+    
+    public String category(){
+    return category;
+    }
+    
     public void display (){
         System.out.println("For "+points);
         System.out.println("In the category "+category);

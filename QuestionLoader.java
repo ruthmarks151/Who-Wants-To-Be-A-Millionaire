@@ -14,18 +14,19 @@ class QuestionLoader{
             System.out.println("Question file not found");
         }
     }
-    
+    //Output the numerical value of the first 2kb of a file
     public void pukeFile (){
       try{
       for (int i=0;i<2048;i++)
       System.out.print(in.read()+", ");
       }catch(IOException e){}
     }
+    //boolean evaluates if a gotten character indicates the end of a file
     private void checkEOF(int read) throws IOException{
       eofs++;
-      if (read==-1){
+      if (read==-1){//if it is the end of the file
         System.out.println("IOException"+eofs);
-        throw new IOException();}
+        throw new IOException();}//throw an exception to be caught in the queston deck
     }
     public Question read() throws IOException{
         //From the way the question is built they must start defined as null
