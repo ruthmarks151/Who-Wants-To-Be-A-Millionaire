@@ -17,6 +17,17 @@ class Question{
         for (int i=0;i<4;i++){
           shuffle();}
     }
+    public int rightAnswer(){
+    return rightAnswer;
+    }
+    
+    public String[] answers(){
+    return answers;
+    }
+    
+    public String question(){
+    return question;
+    }
     
     public int value(){
     return points;
@@ -31,7 +42,7 @@ class Question{
         System.out.println("In the category "+category);
         System.out.println("The question is "+question);
         for (int i=0;i<4;i++)
-            System.out.println((char)(i+(int)'A')+") "+answers[i]);
+            System.out.println(((char)(i+(int)'A'))+")+"+answers[i]);
         
         System.out.println("The right answer was "+(char)(rightAnswer+(int)'A'));
     }
