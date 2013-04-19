@@ -5,6 +5,7 @@ class Question{
     protected int rightAnswer,points;//The array position of the right answer and the point/money value of the question
     protected boolean lockin;//false if the person is not locked in, true when they do
     protected String category;//The category of the question
+    public int selected;
     Question (){}
     
     Question (int givenPoints,String givenCategory,String givenQuestion,String[] givenAnswers,int givenRight){
@@ -17,6 +18,14 @@ class Question{
         for (int i=0;i<4;i++){
           shuffle();}
     }
+    
+    public boolean correct(){
+    return rightAnswer==selected;
+    }
+    public void lock(){
+    lockin=true;
+    }
+    
     public int rightAnswer(){
     return rightAnswer;
     }
