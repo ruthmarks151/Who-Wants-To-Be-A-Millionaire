@@ -1,6 +1,3 @@
-/*
-Quincy Lam, Ryan Marks, Stephen Wen
-*/
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JLabel;
@@ -25,6 +22,7 @@ public class QuestionWindowManager {
   f.addRadioListener();
   f.pack();
   f.setVisible(true);
+  
  }
   
  
