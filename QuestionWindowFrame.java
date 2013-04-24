@@ -16,66 +16,85 @@ import java.util.Iterator;
 
 public class QuestionWindowFrame extends JFrame implements ActionListener,WindowStateListener {
   private Question q;
- private static  HashMap<CorrectlyClicked, JButton> panelToButton;
- private JPanel p;
- private JScrollPane sp;
- private RadioListener r;
- 
- public QuestionWindowFrame(Question question) { 
+  private static  HashMap<CorrectlyClicked, JButton> panelToButton;
+  private JPanel p;
+  private JScrollPane sp;
+  private RadioListener r;
+  private JButton lock, stop; 
+  public QuestionWindowFrame(Question question) { 
     super("$"+question.level.value()+" "+question.category());
-      q=question;
+    q=question;
+    
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+    panelToButton = new HashMap<CorrectlyClicked, JButton>();
+    
+    
+    p = new JPanel();
+    p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
 
-  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-  panelToButton = new HashMap<CorrectlyClicked, JButton>();
-
-
-  p = new JPanel();
-  p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
-
-  sp = new JScrollPane(p);
-  sp.validate();
-  add(sp);
-  validate();
-}
+    sp = new JScrollPane(p);
+    sp.validate();
+    add(sp);
+    validate();
+    addRadioListener();
+    lock = new JButton("Final Answer");
+    stop = new JButton("Stop Playing");
+    lock.addActionListener(this);
+    stop.addActionListener(this);
+    p.add(lock);
+    p.add(stop);
+    panelToButton.put(r, lock);
+    panelToButton.put(r, stop);
+  }
+  
+ 
  public void changeQuestion (Question question){
-sp.removeAll();//or remove(JComponent)
    q=question;
- super.setTitle("$"+question.level.value()+" "+question.category());
-r.changeQuestion(q);
-p.revalidate();
-p.repaint();
-
+   super.setTitle("$"+question.level.value()+" "+question.category());
+   r.changeQuestion(q);
+   p.revalidate();
+   p.repaint();
+   
  }  
  // Enables button for CheckboxListener and RadioListener
  // Makes a new CheckboxListener or RadioListener for JButtons
  public void actionPerformed (ActionEvent e) {
-      System.out.println("Action event!");
-}
-
+   if (e.getSource()==lock){
+     CustomDialog sure=new CustomDialog(null,true,("Is "+(char)('A'+q.selected)+") "+q.answers[q.selected]+", your final answer"));
+     if (sure.getAnswer()){
+       if(q.correct()){
+         System.out.println("Right Answer!");
+         
+       }else
+  System.out.println("Wrong Answer!");}
+     
+   }else if (e.getSource()==stop){
+     CustomDialog sure=new CustomDialog(null,true,"Are you sure you want to leave with $"+q.level.value());
+     if (sure.getAnswer()){
+       if(q.correct()){
+         System.out.println("You left the game with");
+         
+       }}}
+ }
+ 
  
  public void windowStateChanged(WindowEvent e) {
- 
+   
  }
  
-
+ 
  public void addRadioListener() {
-  r = new RadioListener(q);
-  /* c.addActionListener(this); */
-  p.add(r); 
-  JButton lock = new JButton("Final Answer");
-  JButton stop = new JButton("Stop Playing");
-  lock.addActionListener(new FinalListener(q));
-  stop.addActionListener(new StopListener(q));
-  p.add(lock);
-  p.add(stop);
-  
-  System.out.println(p.getPreferredSize());
-  p.setSize(p.getPreferredSize());
-
-  p.validate();
-  panelToButton.put(r, lock);
-    panelToButton.put(r, stop);
+   r = new RadioListener(q);
+   /* c.addActionListener(this); */
+   p.add(r); 
+   
+   
+   System.out.println(p.getPreferredSize());
+   p.setSize(p.getPreferredSize());
+   
+   p.validate();
+   
  }
-
-
+ 
+ 
 }

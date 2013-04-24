@@ -3,12 +3,12 @@ class Level{
   private int level;//Holds a reference to the array not a value
   
   Level(){
-  level=0;
+    level=0;
   }
   Level (int points){
-        System.out.println("Constructing points!");
+    System.out.println("Constructing points!");
     setLevel(points);
-          System.out.println("Sucsess!");
+    System.out.println("Sucsess!");
   }
   public void setLevel(int points){
     for (int i=0;(points<levels[i])&&(i<14);i++){
@@ -17,7 +17,7 @@ class Level{
   }
   
   public void nextLevel(){
-  level++;
+    level++;
   }
   
   public int value(){
