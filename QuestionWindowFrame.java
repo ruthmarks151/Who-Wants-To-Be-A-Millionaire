@@ -19,10 +19,12 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
  private static  HashMap<CorrectlyClicked, JButton> panelToButton;
  private JPanel p;
  private JScrollPane sp;
+ private RadioListener r;
  
  public QuestionWindowFrame(Question question) { 
     super("$"+question.level.value()+" "+question.category());
       q=question;
+
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
   panelToButton = new HashMap<CorrectlyClicked, JButton>();
 
@@ -39,7 +41,9 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
 sp.removeAll();//or remove(JComponent)
    q=question;
  super.setTitle("$"+question.level.value()+" "+question.category());
- addRadioListener();
+r.changeQuestion(q);
+p.revalidate();
+p.repaint();
 
  }  
  // Enables button for CheckboxListener and RadioListener
@@ -55,7 +59,7 @@ sp.removeAll();//or remove(JComponent)
  
 
  public void addRadioListener() {
-  RadioListener r = new RadioListener(q);
+  r = new RadioListener(q);
   /* c.addActionListener(this); */
   p.add(r); 
   JButton lock = new JButton("Final Answer");

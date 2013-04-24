@@ -20,9 +20,11 @@ public class RadioListener  extends JPanel implements CorrectlyClicked, ActionLi
     protected JRadioButton[] buttons;//the array of buttons in the group
     protected int choice;//the index of the button that should be chosen
     protected Question q;
+
     public RadioListener (Question question){
       q=question;
-     //initializes all values
+
+//initializes all values
         panel = new JPanel ();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         label = new JLabel();
@@ -43,19 +45,7 @@ public class RadioListener  extends JPanel implements CorrectlyClicked, ActionLi
         }
         add(panel);
     }
-    
-    public void changeQuestion(Question givenQ){
-    q=givenQ;
-     for (int i = 0 ; i < buttons.length ; i++){//loop to initialize all the buttons
-            buttons[i] = new JRadioButton((char)('A'+i)+") "+q.answers()[i]);//creates the button, and names it
-            buttons[i].addActionListener(this);//adds an actionlistener so we can tell if it is hit
-            buttons[i].setMnemonic(KeyEvent.VK_1 + i-1);//allows you to press a key instead of click **HAVE TO PRESS ALT FOR IT TO WORK**
-            buttons[i].setAlignmentX(LEFT_ALIGNMENT);
-            panel.add(buttons[i]);//adds the button to the panel
-            group.add(buttons[i]);//adds the button to the group so we can't select more than one
-        }
-    
-    }
+
     
     public void actionPerformed(ActionEvent e){//called when you click a button
         System.out.println("Radio Button clicked!");
@@ -67,5 +57,14 @@ public class RadioListener  extends JPanel implements CorrectlyClicked, ActionLi
   
  public boolean isCorrect() {
   return buttons[choice].isSelected();
+ }
+ 
+ public void changeQuestion(Question newQ){
+ q=newQ;
+   for (int i = 0 ; i < buttons.length ; i++){//loop to initialize all the buttons
+            buttons[i].setText(((char)('A'+i)+") "+q.answers()[i]));//Sets new label
+        }
+  revalidate();
+repaint();  
  }
 }

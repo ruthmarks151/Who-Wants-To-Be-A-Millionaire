@@ -20,8 +20,16 @@ public class QuestionWindowManager {
   f = new QuestionWindowFrame(qd.get ());
   f.addRadioListener();
   f.pack();
-  f.setVisible(true);}
-
-  
- 
-}
+  f.setVisible(true);
+  System.out.println("Done execution");
+ while(!StateMachine.doneGame){ 
+         System.out.println("Looped");
+        
+         System.out.println(""+StateMachine.doneGame);
+         
+         StateMachine.nextQuestion=false;
+         System.out.println("Next Question");
+ }
+ System.out.println("Done");
+ }
+ }
