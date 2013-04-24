@@ -2,15 +2,30 @@ import java.lang.Math;
 class Question{
     protected String question;//The text of the question
     protected String[] answers;//All the possible answers
-    protected int rightAnswer,points;//The array position of the right answer and the point/money value of the question
+    protected int rightAnswer;//The array position of the right answer and the point/money value of the question
+    protected Level level;
     protected boolean lockin;//false if the person is not locked in, true when they do
     protected String category;//The category of the question
-    public int selected;
+    protected int selected;
+    //One line acsessors
+    public Level level (){return level;}
+    public int rightAnswer(){return rightAnswer;}
+    public String[] answers(){return answers;} 
+    public boolean correct(){return rightAnswer==selected;}
+    public String question(){return question;}
+    public String category(){return category;}
+    public int selected(){return selected;}
+    //One line Mutators
+    public void lock(){lockin=true;}
+    public void selected(int s){selected=s;}
+   
+    
+    
     Question (){}
     
     Question (int givenPoints,String givenCategory,String givenQuestion,String[] givenAnswers,int givenRight){
         //Define everything as the given value
-        points=givenPoints;
+        level=new Level (givenPoints);
         category=givenCategory;
         question=givenQuestion;
         rightAnswer=givenRight;
@@ -18,36 +33,13 @@ class Question{
         for (int i=0;i<4;i++){
           shuffle();}
     }
+
+   
     
-    public boolean correct(){
-    return rightAnswer==selected;
-    }
-    public void lock(){
-    lockin=true;
-    }
-    
-    public int rightAnswer(){
-    return rightAnswer;
-    }
-    
-    public String[] answers(){
-    return answers;
-    }
-    
-    public String question(){
-    return question;
-    }
-    
-    public int value(){
-    return points;
-    }
-    
-    public String category(){
-    return category;
-    }
+   
     
     public void display (){
-        System.out.println("For "+points);
+        System.out.println("For "+ level.value());
         System.out.println("In the category "+category);
         System.out.println("The question is "+question);
         for (int i=0;i<4;i++)

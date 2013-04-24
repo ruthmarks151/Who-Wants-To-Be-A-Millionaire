@@ -5,6 +5,16 @@ class Level{
   Level(){
   level=0;
   }
+  Level (int points){
+        System.out.println("Constructing points!");
+    setLevel(points);
+          System.out.println("Sucsess!");
+  }
+  public void setLevel(int points){
+    for (int i=0;(points<levels[i])&&(i<14);i++){
+      level=i;
+    }
+  }
   
   public void nextLevel(){
   level++;

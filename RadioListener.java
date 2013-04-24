@@ -44,6 +44,19 @@ public class RadioListener  extends JPanel implements CorrectlyClicked, ActionLi
         add(panel);
     }
     
+    public void changeQuestion(Question givenQ){
+    q=givenQ;
+     for (int i = 0 ; i < buttons.length ; i++){//loop to initialize all the buttons
+            buttons[i] = new JRadioButton((char)('A'+i)+") "+q.answers()[i]);//creates the button, and names it
+            buttons[i].addActionListener(this);//adds an actionlistener so we can tell if it is hit
+            buttons[i].setMnemonic(KeyEvent.VK_1 + i-1);//allows you to press a key instead of click **HAVE TO PRESS ALT FOR IT TO WORK**
+            buttons[i].setAlignmentX(LEFT_ALIGNMENT);
+            panel.add(buttons[i]);//adds the button to the panel
+            group.add(buttons[i]);//adds the button to the group so we can't select more than one
+        }
+    
+    }
+    
     public void actionPerformed(ActionEvent e){//called when you click a button
         System.out.println("Radio Button clicked!");
         for (int i=0;i<4;i++){

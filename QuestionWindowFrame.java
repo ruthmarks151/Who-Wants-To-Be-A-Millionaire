@@ -21,7 +21,7 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
  private JScrollPane sp;
  
  public QuestionWindowFrame(Question question) { 
-    super("$"+question.value()+" "+question.category());
+    super("$"+question.level.value()+" "+question.category());
       q=question;
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
   panelToButton = new HashMap<CorrectlyClicked, JButton>();
@@ -36,15 +36,18 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
   validate();
 }
  public void changeQuestion (Question question){
- q=question;
- super.setTitle("$"+question.value()+" "+question.category());
+sp.removeAll();//or remove(JComponent)
+   q=question;
+ super.setTitle("$"+question.level.value()+" "+question.category());
+ addRadioListener();
+
  }  
  // Enables button for CheckboxListener and RadioListener
  // Makes a new CheckboxListener or RadioListener for JButtons
  public void actionPerformed (ActionEvent e) {
-
- 
+      System.out.println("Action event!");
 }
+
  
  public void windowStateChanged(WindowEvent e) {
  
@@ -55,15 +58,19 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
   RadioListener r = new RadioListener(q);
   /* c.addActionListener(this); */
   p.add(r); 
-  JButton b = new JButton("Final Answer");
-  b.addActionListener(new ButtonListener(q));
-  p.add(b);
-
+  JButton lock = new JButton("Final Answer");
+  JButton stop = new JButton("Stop Playing");
+  lock.addActionListener(new FinalListener(q));
+  stop.addActionListener(new StopListener(q));
+  p.add(lock);
+  p.add(stop);
+  
   System.out.println(p.getPreferredSize());
   p.setSize(p.getPreferredSize());
 
   p.validate();
-  panelToButton.put(r, b);
+  panelToButton.put(r, lock);
+    panelToButton.put(r, stop);
  }
 
 

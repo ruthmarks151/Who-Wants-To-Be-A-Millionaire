@@ -34,7 +34,7 @@ public Question get(int points){
 Question q;
 do{
 q=deck[(int)(Math.random()*deck.length)];
-}while (q.value()!=points);
+}while (q.level.value()!=points);
   return q;
 }
 
@@ -52,7 +52,7 @@ public Question get(int points,String category){
 Question q;
 do{
 q=deck[(int)(Math.random()*deck.length)];
-}while (!((q.value()==points)&&(category.equals((q.category())))));
+}while (!((q.level.value()==points)&&(category.equals((q.category())))));
   return q;
 }
 

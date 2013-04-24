@@ -12,18 +12,16 @@ import java.util.HashMap;
 public class QuestionWindowManager {
  public static QuestionWindowFrame f;
  public static void main(String[] args) {
-
+  StateMachine s=new StateMachine(); 
    QuestionDeck qd = new QuestionDeck ();
  qd.fill ();
- Question q1 = qd.get ();
- q1.display ();
 
-  f = new QuestionWindowFrame(q1);
+ 
+  f = new QuestionWindowFrame(qd.get ());
   f.addRadioListener();
   f.pack();
-  f.setVisible(true);
-  
- }
+  f.setVisible(true);}
+
   
  
 }
