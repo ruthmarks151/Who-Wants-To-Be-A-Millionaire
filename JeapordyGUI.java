@@ -49,22 +49,26 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   
  }
  
- 
  public void actionPerformed (ActionEvent e){ // creates action listeners
-  
-  //instruction button action listener
-  if (e.getSource() == instructionbutton) 
-  {
-   JOptionPane.showMessageDialog(null, "Instructions","Instructions", JOptionPane.INFORMATION_MESSAGE); // displays the instructions message (a popup)
-  }
-  
-  // startmenu button action listener
-  else if (e.getSource() == startbutton) 
-  {
-   
-  }
-  
- }
+
+		//instruction button action listener
+		if (e.getSource() == instructionbutton) 
+		{
+			JOptionPane.showMessageDialog(null, "Instructions:\nWarning: In order to play this game, you need a good understanding of GUI." +
+												"\n\nTo advance towards the next levels, you need to answer questions correctly, after each " +
+												"correctly answered question,\n you will need to decide to keep your score and leave or to keep " +
+												"going to next rounds.\nYou win when you reach one million dollars.\nThere are lifelines to help you in case" +
+												" you become stuck (Use them wisely).","Instructions", JOptionPane.INFORMATION_MESSAGE); // displays the instructions message (a popup)
+		}
+
+		// startmenu button action listener
+		else if (e.getSource() == startbutton) 
+		{
+
+		}
+
+	}
+
  
  
  private void createAndShowGUI(){
