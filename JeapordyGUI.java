@@ -2,18 +2,22 @@ import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.awt.Graphics;
 
 
 
 
 public class JeapordyGUI extends JPanel implements ActionListener{
  
- JButton startbutton, instructionbutton; 
- 
- 
+
+ JButton startbutton, instructionbutton;  // startbutton and instructionbutton
+ boolean starts = false;
+ public static QuestionWindowPanel 	p; // the panel for question window
+  
  public  JPanel startmenupanel(){ // start menu
  
-  
+	 	
+ 
   
  startbutton = new JButton ("Start"); // creates start button 
  startbutton.setPreferredSize(new Dimension(0,40)); // gives the buttons its size
@@ -57,18 +61,17 @@ public class JeapordyGUI extends JPanel implements ActionListener{
 			JOptionPane.showMessageDialog(null, "Instructions:\nWarning: In order to play this game, you need a good understanding of GUI." +
 												"\n\nTo advance towards the next levels, you need to answer questions correctly, after each " +
 												"correctly answered question,\n you will need to decide to keep your score and leave or to keep " +
-												"going to next rounds.\nYou win when you reach one million dollars.\nThere are lifelines to help you in case" +
+												"going to next rounds.\n\nYou win when you reach one million dollars.\n\nThere are lifelines to help you in case" +
 												" you become stuck (Use them wisely).","Instructions", JOptionPane.INFORMATION_MESSAGE); // displays the instructions message (a popup)
 		}
 
 		// startmenu button action listener
 		else if (e.getSource() == startbutton) 
 		{
-
+			starts = true; // turns starts boolean in to true when this is pressed
 		}
 
 	}
-
  
  
  private void createAndShowGUI(){
@@ -84,10 +87,24 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   frame.setSize(650,500); // sets frame to this size 
   
   //content added to window
+  
   frame.add (backgrounds()); // adds the backgrounds panel (a panel for the backgroun)
   frame.add (startmenupanel(), BorderLayout.SOUTH); // adds the start menu panale ( includes buttons)
- 
   
+  StartMenuGraphics drawing = new StartMenuGraphics();
+  frame.add(drawing); // adds this drawing to the frame.
+  
+  QuestionDeck qd = new QuestionDeck ();// creates new question deck
+  if (starts = true) // when it turns true, other things happen to the frame.
+  {
+	  
+	  qd.fill(); // fills the qd questiondeck
+	  p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
+	  
+	    p.setSize(600, 200); // sets panel size
+	    
+	    frame.add(p); // adds the p to the frame.
+  }  
   
   
   //displays Frame/Window 
@@ -101,6 +118,8 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   new JeapordyGUI().createAndShowGUI();
  }
  
- 
 
 }
+
+
+
