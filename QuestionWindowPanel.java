@@ -14,37 +14,33 @@ import java.awt.event.WindowEvent;
 import java.util.Map.Entry;
 import java.util.Iterator;
 
-public class QuestionWindowFrame extends JFrame implements ActionListener,WindowStateListener {
+public class QuestionWindowPanel extends JPanel implements ActionListener {
   private Question q;
   private QuestionDeck qd;
   private static  HashMap<CorrectlyClicked, JButton> panelToButton;
-  private JPanel p;
   private JScrollPane sp;
   private RadioListener r;
   private JButton lock, stop; 
-  public QuestionWindowFrame(QuestionDeck questionDeck) { 
+  public QuestionWindowPanel(QuestionDeck questionDeck) { 
     super();
     qd=questionDeck;
     q=qd.get();
-    super.setTitle("$"+q.level.value()+" "+q.category());
-    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-    panelToButton = new HashMap<CorrectlyClicked, JButton>();
-    
-    
-    p = new JPanel();
-    p.setLayout(new BoxLayout(p, BoxLayout.PAGE_AXIS));
 
-    sp = new JScrollPane(p);
+    panelToButton = new HashMap<CorrectlyClicked, JButton>();
+   
+    super.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+    sp = new JScrollPane(this);
     sp.validate();
-    add(sp);
+    //add(sp);
     validate();
     addRadioListener();
     lock = new JButton("Final Answer");
     stop = new JButton("Stop Playing");
     lock.addActionListener(this);
     stop.addActionListener(this);
-    p.add(lock);
-    p.add(stop);
+    this.add(lock);
+    this.add(stop);
     panelToButton.put(r, lock);
     panelToButton.put(r, stop);
   }
@@ -52,10 +48,10 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
  
  public void changeQuestion (){
    q=qd.get();
-   super.setTitle("$"+q.level.value()+" "+q.category());
+
    r.changeQuestion(q);
-   p.revalidate();
-   p.repaint();
+   revalidate();
+   repaint();
    
  }  
  // Enables button for CheckboxListener and RadioListener
@@ -89,13 +85,13 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
  public void addRadioListener() {
    r = new RadioListener(q);
    /* c.addActionListener(this); */
-   p.add(r); 
+   super.add(r); 
    
    
-   System.out.println(p.getPreferredSize());
-   p.setSize(p.getPreferredSize());
+   System.out.println(this.getPreferredSize());
+   super.setSize(this.getPreferredSize());
    
-   p.validate();
+   super.validate();
    
  }
  
