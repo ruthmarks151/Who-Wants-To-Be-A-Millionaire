@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.Timer;
 import javax.swing.JScrollPane;
-import javax.swing.BorderLayout;
+
 import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.event.WindowStateListener;
@@ -25,7 +25,7 @@ pB = new JProgressBar(SwingConstants.VERTICAL,0,15);
 pB.setValue(0);
 pB.setStringPainted(true);
 
-super.setLayout(new BorderLayout(this,BorderLayout));
+//super.setLayout(new BorderLayout(this,BorderLayout));
 
 }
 

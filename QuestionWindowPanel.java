@@ -43,6 +43,9 @@ public class QuestionWindowPanel extends JPanel implements ActionListener {
     this.add(stop);
     panelToButton.put(r, lock);
     panelToButton.put(r, stop);
+    
+    
+    
   }
   
  
