@@ -1,6 +1,6 @@
 200
-Catergory
-Question
+Catergory0
+Question0
 Right Answer0
 wrong answer1
 wrong answer2
@@ -15,8 +15,8 @@ Function
 Traits
 
 800
-Catergory
-Question
+Catergory1
+Question1
 Right Answer
 wrong answer
 wrong answer

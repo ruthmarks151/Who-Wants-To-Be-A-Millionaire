@@ -16,15 +16,17 @@ import java.util.Iterator;
 
 public class QuestionWindowFrame extends JFrame implements ActionListener,WindowStateListener {
   private Question q;
+  private QuestionDeck qd;
   private static  HashMap<CorrectlyClicked, JButton> panelToButton;
   private JPanel p;
   private JScrollPane sp;
   private RadioListener r;
   private JButton lock, stop; 
-  public QuestionWindowFrame(Question question) { 
-    super("$"+question.level.value()+" "+question.category());
-    q=question;
-    
+  public QuestionWindowFrame(QuestionDeck questionDeck) { 
+    super();
+    qd=questionDeck;
+    q=qd.get();
+    super.setTitle("$"+q.level.value()+" "+q.category());
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     panelToButton = new HashMap<CorrectlyClicked, JButton>();
     
@@ -48,9 +50,9 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
   }
   
  
- public void changeQuestion (Question question){
-   q=question;
-   super.setTitle("$"+question.level.value()+" "+question.category());
+ public void changeQuestion (){
+   q=qd.get();
+   super.setTitle("$"+q.level.value()+" "+q.category());
    r.changeQuestion(q);
    p.revalidate();
    p.repaint();
@@ -64,6 +66,7 @@ public class QuestionWindowFrame extends JFrame implements ActionListener,Window
      if (sure.getAnswer()){
        if(q.correct()){
          System.out.println("Right Answer!");
+         changeQuestion();
          
        }else
   System.out.println("Wrong Answer!");}

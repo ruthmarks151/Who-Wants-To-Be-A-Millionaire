@@ -17,9 +17,9 @@ public class QuestionWindowManager {
     qd.fill ();
     
     
-    f = new QuestionWindowFrame(qd.get ());
+    f = new QuestionWindowFrame(qd);
     
-    f.pack();
+    f.setSize(600, 200);
     f.setVisible(true);
     System.out.println("Done execution");
   }

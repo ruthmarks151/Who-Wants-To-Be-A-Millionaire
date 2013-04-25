@@ -8,6 +8,7 @@ class QuestionLoader{
     try{
       System.out.print("Making file reader...");
       in = new FileReader("CompSciQuestions.txt");
+
       System.out.println("...Succsess!");
     }
     catch(IOException e) {

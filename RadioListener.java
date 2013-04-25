@@ -61,6 +61,7 @@ public class RadioListener  extends JPanel implements CorrectlyClicked, ActionLi
   
   public void changeQuestion(Question newQ){
     q=newQ;
+    label.setText(""+q.question());
     for (int i = 0 ; i < buttons.length ; i++){//loop to initialize all the buttons
       buttons[i].setText(((char)('A'+i)+") "+q.answers()[i]));//Sets new label
     }

@@ -98,5 +98,5 @@ public class JeapordyGUI extends JPanel implements ActionListener{
  }
  
  
- 
+
 }
