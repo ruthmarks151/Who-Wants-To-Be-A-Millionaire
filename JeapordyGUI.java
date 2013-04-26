@@ -20,8 +20,9 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     
     startbutton = new JButton ("Start"); // creates start button 
+     startbutton.addActionListener (this); // adds action listener
     startbutton.setPreferredSize(new Dimension(0,40)); // gives the buttons its size
-    startbutton.addActionListener (this); // adds action listener
+   
     
     instructionbutton = new JButton ("Instructions"); // creates instructions button 
     instructionbutton.addActionListener(this); // adds action listener
@@ -68,6 +69,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     // startmenu button action listener
     else if (e.getSource() == startbutton) 
     {
+      System.out.println("HI");
       starts = true; // turns starts boolean in to true when this is pressed
     }
     
@@ -97,7 +99,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     QuestionDeck qd = new QuestionDeck ();// creates new question deck
     if (starts = true) // when it turns true, other things happen to the frame.
     {
-      
+      frame.remove(startmenupanel());
       qd.fill(); // fills the qd questiondeck
       p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
       
