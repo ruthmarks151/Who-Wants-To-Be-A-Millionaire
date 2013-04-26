@@ -49,6 +49,8 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     JPanel backgrounds = new JPanel(); //creates panel to put background stuff on to
     backgrounds.setBackground(Color.blue); // makes the panel background blue
+    StartMenuGraphics drawing = new StartMenuGraphics();
+    backgrounds.add(drawing); // adds this drawing to the panel
     
     return backgrounds; //returns this panel
     
@@ -67,10 +69,11 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     }
     
     // startmenu button action listener
-    else if (e.getSource() == startbutton) 
+   else if (e.getSource() == startbutton) 
     {
       System.out.println("HI");
       starts = true; // turns starts boolean in to true when this is pressed
+      System.out.println("BYE");
     }
     
   }
@@ -90,32 +93,31 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     //content added to window
     
-    frame.add (backgrounds()); // adds the backgrounds panel (a panel for the backgroun)
-    frame.add (startmenupanel(), BorderLayout.SOUTH); // adds the start menu panale ( includes buttons)
+    JPanel backgroundss = backgrounds(); // creates new backgrounds panel
+    frame.add (backgroundss); // adds the backgrounds panel (a panel for the backgroun)
     
-    StartMenuGraphics drawing = new StartMenuGraphics();
-    frame.add(drawing); // adds this drawing to the frame.
-    
-    QuestionDeck qd = new QuestionDeck ();// creates new question deck
-    if (starts = true) // when it turns true, other things happen to the frame.
-    {
-      frame.remove(startmenupanel());
-      qd.fill(); // fills the qd questiondeck
-      p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
-      
-      p.setSize(600, 200); // sets panel size
-      
-      frame.add(p); // adds the p to the frame.
-    }  
+    JPanel startmenus = startmenupanel(); // creates new startmenu panel
+    frame.add (startmenus, BorderLayout.SOUTH); // adds the start menu panale ( includes buttons)
     
     
     //displays Frame/Window 
     frame.setVisible (true);
     
+     QuestionDeck qd = new QuestionDeck ();// creates new question deck
+    
+    if (starts == true) // when it turns true, other things happen to the frame.
+    {
+      frame.repaint();
+      qd.fill(); // fills the qd questiondeck
+      p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
+      
+      p.setSize(500, 100); // sets panel size
+      
+      frame.add(p, BorderLayout.CENTER); // adds the p to the frame and put it in the center.
+    }  
   }
   
   public static void main (String[] args){
-    
     
     JeapordyGUI jg = new JeapordyGUI();
     jg.createAndShowGUI();
