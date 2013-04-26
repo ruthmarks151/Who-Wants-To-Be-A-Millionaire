@@ -10,17 +10,12 @@ import java.util.HashMap;
 
 
 public class QuestionWindowManager {
-  public static QuestionWindowFrame f;
+  public static QuestionWindowPanel f;
   public static void main(String[] args) {
     
     QuestionDeck qd = new QuestionDeck ();
     qd.fill ();
     
-    
-    f = new QuestionWindowFrame(qd);
-    
-    f.setSize(600, 200);
-    f.setVisible(true);
     System.out.println("Done execution");
   }
 }

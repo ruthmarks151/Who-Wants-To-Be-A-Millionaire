@@ -13,7 +13,7 @@ import javax.swing.BoxLayout;
 import java.awt.Component;
 
 public class RadioListener  extends JPanel implements CorrectlyClicked, ActionListener{
-
+  
   protected JPanel panel;//the panel that this object will be placed on
   protected JLabel label;//the label to show whether or not you hit the right button
   protected ButtonGroup group;//the group of buttons used
@@ -46,7 +46,7 @@ public class RadioListener  extends JPanel implements CorrectlyClicked, ActionLi
     add(panel);
   }
   
-    
+  
   public void actionPerformed(ActionEvent e){//called when you click a button
     System.out.println("Radio Button clicked!");
     for (int i=0;i<4;i++){

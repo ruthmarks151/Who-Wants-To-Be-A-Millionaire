@@ -8,13 +8,13 @@ class QuestionLoader{
     try{
       System.out.print("Making file reader...");
       in = new FileReader("CompSciQuestions.txt");
-
+      
       System.out.println("...Succsess!");
     }
     catch(IOException e) {
       System.out.println("Question file not found");
     }
-    }
+  }
   //Output the numerical value of the first 2kb of a file
   public void pukeFile (){
     try{
@@ -71,12 +71,12 @@ class QuestionLoader{
     }
     read=in.read();
     //System.out.println("Question Loaded!");
-            checkEOF(read);  
-            
-            //System.out.println("Creating question!");
-            Question q= new Question(points,category,question,answers,0);//construct a question object
-            
-            return q;//Return it
+    checkEOF(read);  
+    
+    //System.out.println("Creating question!");
+    Question q= new Question(points,category,question,answers,0);//construct a question object
+    
+    return q;//Return it
   }
   
   

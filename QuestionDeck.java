@@ -37,7 +37,7 @@ class QuestionDeck{
     }while (q.level.value()!=points);
     return q;
   }
-
+  
 //Gets a random question and if it has the requested category, returns it
   public Question get(String category){
     Question q;
@@ -46,7 +46,7 @@ class QuestionDeck{
     }while (!(category.equals((q.category()))));
     return q;
   }
-
+  
 //Gets a random question and if it has the requested value of points and category, returns it
   public Question get(int points,String category){
     Question q;
