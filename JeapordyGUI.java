@@ -11,8 +11,12 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   
   
   JButton startbutton, instructionbutton;  // startbutton and instructionbutton
-  boolean starts = false;
+
   public static QuestionWindowPanel  p; // the panel for question window
+  JFrame frame = new JFrame("IMPROVISED - JEA" +
+                              "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
+ 
+  
   
   public  JPanel startmenupanel(){ // start menu
     
@@ -71,19 +75,35 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     // startmenu button action listener
    else if (e.getSource() == startbutton) 
     {
-      System.out.println("HI");
-      starts = true; // turns starts boolean in to true when this is pressed
-      System.out.println("BYE");
+     questionsGUI();
     }
     
+   
   }
   
+  public void questionsGUI(){
+    frame.removeAll(); // to remove everytthing from before on the frame  
+    frame.revalidate();
+    frame.repaint();
+    
+    JPanel backgrounds2 = backgrounds();
+    frame.add(backgrounds2);
+    
+      QuestionDeck qd = new QuestionDeck ();// creates new question deck
+     
+      qd.fill(); // fills the qd questiondeck
+      p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
+      
+      p.setSize(500, 200); // sets panel size
+      
+      frame.setLayout(new BorderLayout());
+      frame.add(p, BorderLayout.CENTER); // adds the p to the frame and put it in the center. 
+    
+      frame.setVisible(true);
+  }
   
   private void createAndShowGUI(){
     //creates and sets up the window
-    
-    JFrame frame = new JFrame("IMPROVISED - JEA" +
-                              "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
     
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Exits the program when closed
     
@@ -100,27 +120,16 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     frame.add (startmenus, BorderLayout.SOUTH); // adds the start menu panale ( includes buttons)
     
     
-    //displays Frame/Window 
+     //displays Frame/Window 
     frame.setVisible (true);
-    
-     QuestionDeck qd = new QuestionDeck ();// creates new question deck
-    
-    if (starts == true) // when it turns true, other things happen to the frame.
-    {
-      frame.repaint();
-      qd.fill(); // fills the qd questiondeck
-      p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
-      
-      p.setSize(500, 100); // sets panel size
-      
-      frame.add(p, BorderLayout.CENTER); // adds the p to the frame and put it in the center.
-    }  
   }
   
   public static void main (String[] args){
     
     JeapordyGUI jg = new JeapordyGUI();
     jg.createAndShowGUI();
+    
+    
   }
   
   
