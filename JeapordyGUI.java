@@ -75,30 +75,22 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     // startmenu button action listener
    else if (e.getSource() == startbutton) 
     {
-     questionsGUI();
+     instructionbutton.setVisible(false);
+     startbutton.setVisible(false);
+     p.setVisible(true);
     }
     
    
   }
   
   public void questionsGUI(){
-    frame.removeAll(); // to remove everytthing from before on the frame  
-    frame.revalidate();
-    frame.repaint();
-    
+
     JPanel backgrounds2 = backgrounds();
     frame.add(backgrounds2);
     
-      QuestionDeck qd = new QuestionDeck ();// creates new question deck
-     
-      qd.fill(); // fills the qd questiondeck
-      p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
+  
       
-      p.setSize(500, 200); // sets panel size
       
-      frame.setLayout(new BorderLayout());
-      frame.add(p, BorderLayout.CENTER); // adds the p to the frame and put it in the center. 
-    
       frame.setVisible(true);
   }
   
@@ -113,12 +105,23 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     //content added to window
     
+    QuestionDeck qd = new QuestionDeck ();// creates new question deck
+     
+     qd.fill(); // fills the qd questiondeck
+     p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
+      
+     p.setSize(500, 200); // sets panel size
+     
+     frame.add(p, BorderLayout.CENTER); // adds the p to the frame and put it in the center. 
+    p.setVisible(false);
+    
     JPanel backgroundss = backgrounds(); // creates new backgrounds panel
     frame.add (backgroundss); // adds the backgrounds panel (a panel for the backgroun)
     
     JPanel startmenus = startmenupanel(); // creates new startmenu panel
     frame.add (startmenus, BorderLayout.SOUTH); // adds the start menu panale ( includes buttons)
     
+        
     
      //displays Frame/Window 
     frame.setVisible (true);
