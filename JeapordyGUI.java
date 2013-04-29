@@ -28,6 +28,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     startbutton.setPreferredSize(new Dimension(0,40)); // gives the buttons its size
    
     
+    
     instructionbutton = new JButton ("Instructions"); // creates instructions button 
     instructionbutton.addActionListener(this); // adds action listener
     instructionbutton.setPreferredSize(new Dimension(0,40)); // gives the buttons its size
@@ -56,8 +57,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     StartMenuGraphics drawing = new StartMenuGraphics();
     backgrounds.add(drawing); // adds this drawing to the panel
     
-    return backgrounds; //returns this panel
-    
+    return backgrounds; //returns this panel 
   }
   
   public void actionPerformed (ActionEvent e){ // creates action listeners
@@ -103,8 +103,16 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     frame.setSize(650,500); // sets frame to this size 
     
-    //content added to window
+    // Panel created for start menu
+    JPanel startmenues = new JPanel(); // creates a panel for the start menu
+    startmenues.setLayout(new BorderLayout()); // creates a new border layout for the new Jpanel.
     
+    JPanel backgroundss = backgrounds(); // creates new backgrounds panel
+    startmenues.add(backgroundss);
+    JPanel startmenus = startmenupanel(); // creates new startmenu panel
+    startmenues.add(startmenus, BorderLayout.SOUTH); // ads the start menu panel to this panel
+    
+//content added to frame     
     QuestionDeck qd = new QuestionDeck ();// creates new question deck
      
      qd.fill(); // fills the qd questiondeck
@@ -115,13 +123,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
      frame.add(p, BorderLayout.CENTER); // adds the p to the frame and put it in the center. 
     p.setVisible(false);
     
-    JPanel backgroundss = backgrounds(); // creates new backgrounds panel
-    frame.add (backgroundss); // adds the backgrounds panel (a panel for the backgroun)
-    
-    JPanel startmenus = startmenupanel(); // creates new startmenu panel
-    frame.add (startmenus, BorderLayout.SOUTH); // adds the start menu panale ( includes buttons)
-    
-        
+    frame.add (startmenues); // adds the backgrounds panel (a panel for the backgroun)
     
      //displays Frame/Window 
     frame.setVisible (true);
