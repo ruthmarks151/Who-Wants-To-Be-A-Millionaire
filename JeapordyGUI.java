@@ -15,7 +15,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   public static QuestionWindowPanel  p; // the panel for question window
   JFrame frame = new JFrame("IMPROVISED - JEA" +
                               "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
- 
+ JPanel startmenues = new JPanel(); // creates a panel for the start menu
   
   
   public  JPanel startmenupanel(){ // start menu
@@ -75,25 +75,13 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     // startmenu button action listener
    else if (e.getSource() == startbutton) 
     {
-     instructionbutton.setVisible(false);
-     startbutton.setVisible(false);
+     startmenues.setVisible(false);
      p.setVisible(true);
     }
     
    
   }
-  
-  public void questionsGUI(){
 
-    JPanel backgrounds2 = backgrounds();
-    frame.add(backgrounds2);
-    
-  
-      
-      
-      frame.setVisible(true);
-  }
-  
   private void createAndShowGUI(){
     //creates and sets up the window
     
@@ -104,7 +92,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     frame.setSize(650,500); // sets frame to this size 
     
     // Panel created for start menu
-    JPanel startmenues = new JPanel(); // creates a panel for the start menu
+    
     startmenues.setLayout(new BorderLayout()); // creates a new border layout for the new Jpanel.
     
     JPanel backgroundss = backgrounds(); // creates new backgrounds panel
