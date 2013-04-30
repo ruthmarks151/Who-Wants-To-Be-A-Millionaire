@@ -16,6 +16,8 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   JFrame frame = new JFrame("IMPROVISED - JEA" +
                               "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
  JPanel startmenues = new JPanel(); // creates a panel for the start menu
+ ProgressBar moneyamount = new ProgressBar();
+ JPanel progress = new JPanel(); // creates new JPanel for the progress bar
   
   
   public  JPanel startmenupanel(){ // start menu
@@ -77,6 +79,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     {
      startmenues.setVisible(false);
      p.setVisible(true);
+     progress.setVisible(true);
     }
     
    
@@ -99,20 +102,27 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     startmenues.add(backgroundss);
     JPanel startmenus = startmenupanel(); // creates new startmenu panel
     startmenues.add(startmenus, BorderLayout.SOUTH); // ads the start menu panel to this panel
+
     
-//content added to frame     
+//adding question GUI to this frame.     
     QuestionDeck qd = new QuestionDeck ();// creates new question deck
      
-     qd.fill(); // fills the qd questiondeck
-     p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck 
-      
-     p.setSize(500, 200); // sets panel size
+    qd.fill(); // fills the qd questiondeck
+    p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck  
+    p.setSize(50, 50); // sets panel size
      
-     frame.add(p, BorderLayout.CENTER); // adds the p to the frame and put it in the center. 
+    frame.add(p, BorderLayout.EAST); // adds the p to the frame and put it in the center. 
     p.setVisible(false);
     
-    frame.add (startmenues); // adds the backgrounds panel (a panel for the backgroun)
+    progress.add(moneyamount); // adds the progressbar to the panel
+    progress.setSize(50,500);
     
+    frame.add(progress, BorderLayout.WEST);// adds the panel to the frame on the west side
+    progress.setVisible(false);
+   
+    frame.add (startmenues); // adds the startmenu and the back ground for the program
+    
+   
      //displays Frame/Window 
     frame.setVisible (true);
   }
@@ -121,8 +131,6 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     JeapordyGUI jg = new JeapordyGUI();
     jg.createAndShowGUI();
-    
-    
   }
   
   
