@@ -16,9 +16,11 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   JFrame frame = new JFrame("IMPROVISED - JEA" +
                               "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
  JPanel startmenues = new JPanel(); // creates a panel for the start menu
- ProgressBar moneyamount = new ProgressBar();
+ ProgressBar moneyamount = new ProgressBar(); // creates an object from the progress bar class
  JPanel progress = new JPanel(); // creates new JPanel for the progress bar
-  
+ lifelnGui lifeline = new lifelnGui(); // creates an object from the lifeline gui
+ JPanel east = new JPanel (); // creates new JPanel for the progress panel and the lifelin panel
+ JPanel lifelines = new JPanel (); // creates new lifeline JPanel to put into the east panel
   
   public  JPanel startmenupanel(){ // start menu
     
@@ -77,14 +79,15 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     // startmenu button action listener
    else if (e.getSource() == startbutton) 
     {
-     startmenues.setVisible(false);
-     p.setVisible(true);
-     progress.setVisible(true);
+     startmenues.setVisible(false); // makes the startmenu gui disappear
+     p.setVisible(true); // makes the question panel gui appear
+     east.setVisible(true); // makes the east side of the question panel appear
     }
     
    
   }
 
+  
   private void createAndShowGUI(){
     //creates and sets up the window
     
@@ -92,7 +95,9 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     frame.setLayout(new BorderLayout()); // creates a new border layout for the frame
     
-    frame.setSize(650,500); // sets frame to this size 
+    frame.setSize(800,600); // sets frame to this size 
+    
+    east.setLayout(new BorderLayout()); // creates a new border layout for the frame east
     
     // Panel created for start menu
     
@@ -111,14 +116,20 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck  
     p.setSize(50, 50); // sets panel size
      
-    frame.add(p, BorderLayout.EAST); // adds the p to the frame and put it in the center. 
+    frame.add(p, BorderLayout.WEST); // adds the p to the frame and put it in the center. 
     p.setVisible(false);
     
     progress.add(moneyamount); // adds the progressbar to the panel
-    progress.setSize(50,500);
+    progress.setSize(50,100); // sets the panel size
     
-    frame.add(progress, BorderLayout.WEST);// adds the panel to the frame on the west side
-    progress.setVisible(false);
+    east.setSize(450,500); // sets size of east panel
+
+    east.add(progress, BorderLayout.NORTH); // adds the progressbar panel to the east panel
+    
+
+    
+    frame.add(east, BorderLayout.EAST);// adds the panel to the frame on the west side
+    east.setVisible(false);
    
     frame.add (startmenues); // adds the startmenu and the back ground for the program
     
