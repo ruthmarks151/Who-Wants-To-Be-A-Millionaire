@@ -1,0 +1,17 @@
+Background
+Jeopardy has been one of the most popular game shows that people know of, and has been copied to develop other variations of it. Basically, you answer questions  and get points based on if you get it correct or not. Our game is a fusion of this and "Who wants to be a Millionaire" . This millionaire game also requires the player to answer question advance to further cash levels. At the end of both games the player leaves the game with x amount of money.
+How to run the program
+Our improvised Jeopardy game can be run on Dr java or eclipse. Both are available on the internet for no cost.  You must run the JeopardyGUI file for it to work. Ignore the other .java files inside, as they are needed to run the game. Once compiled and running, the program will go to the start screen. You can view brief instructions or begin the game immediately, by pressing the start button on the window. You will then be asked to answer a several questions to beat the game. If you are stuck, there are three lifelines available to aid you. One of them calls an AI to help you guess (phone a friend), another asks the audience for an answer(ask the audience), lastly the 50/50 lifeline tells you two of the three incorrect answers randomly(50/50).When you are finished the game you will leave with x amount of game moneys  to show how good your understanding of GUI is. 
+Limitations + bugs of the program
+The main limitation of this program is that once a lifeline is clicked you will use it right away. Also if you forget what the lifeline asked, it will not keep record of it for you. The program will also give you random questions - so difficult ones may come early in the program. Also, if you adjust the window for the program some of the GUI components will become messed up.
+
+Developer's Guide 
+Overview
+In our program we have a few important classes. There is the Question, QuestionLoader, the QuestionDeck, and the QuestionWindowPanel. These are the main parts for the implementation of the questions into our program. There is also the JeapordyGUI and the EndScreenGUI. 
+QuestionDeck
+This is the core of the questions component because it adds all the questions into the program. Its tries to find corresponding questions that fit the criterion needed (Ex: point values, category), which it then loads into the program. This class functions as a deck of questions- hence the name.
+
+Question
+What this file does is it constructs the question itself. It assigns the correct answer and the money value to a method so it can be accessed later . It also sets the point values, and it checks to see if the user has locked in the choice for the chosen answer( using a Boolean- true for locked and false for not ). This file also has the category of the question, levels, and money value stored.  It also shuffles the answers randomly to give different question choice orders each time.
+QuestionLoader
+This class loads the questions into a readable format character by character. It also tracks the file for the questions to see if it has reached the end of the text file. At first, the question being constructed and its parameters are defined as null, then the question is built. Each question object has a points, category, question, and an answer.
