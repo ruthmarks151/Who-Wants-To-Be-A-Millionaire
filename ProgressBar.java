@@ -14,7 +14,7 @@ public class ProgressBar extends JPanel{
   public ProgressBar() // default constructer for progress bar.
   {
     verticalbar = new JProgressBar (JProgressBar.VERTICAL , minimum, maximum);
-    verticalbar.setPreferredSize(new Dimension(30,400));
+    verticalbar.setPreferredSize(new Dimension(30,200));
     //creates a vertical progress bar with a set minimum and maximum value
     add(verticalbar);
   }
