@@ -5,6 +5,7 @@ class Level{
   Level(){
     level=0;
   }
+  public int levelAt(int i){return levels[i];}
   Level (int points){
     System.out.println("Constructing points!");
     setLevel(points);
@@ -30,4 +31,5 @@ class Level{
     return levels[level];
     
   }
+  
 }

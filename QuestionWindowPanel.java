@@ -20,9 +20,11 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
   private static  HashMap<CorrectlyClicked, JButton> panelToButton;
   private JScrollPane sp;
   private RadioListener r;
-  private JButton lock, stop; 
-  public QuestionWindowPanel(QuestionDeck questionDeck) { 
+  private JButton lock, stop;
+  ProgressBar pb;
+  public QuestionWindowPanel(QuestionDeck questionDeck,ProgressBar progressbar) { 
     super();
+    pb=progressbar;
     qd=questionDeck;
     q=qd.get();
     
@@ -48,8 +50,8 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
   
   public void changeQuestion (){
     q=qd.get();
-    
     r.changeQuestion(q);
+    pb.incrementBar();
     revalidate();
     repaint();
     

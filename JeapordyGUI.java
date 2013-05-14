@@ -113,7 +113,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     QuestionDeck qd = new QuestionDeck ();// creates new question deck
      
     qd.fill(); // fills the qd questiondeck
-    p = new QuestionWindowPanel(qd); // creates new questions window panel with question deck  
+    p = new QuestionWindowPanel(qd,moneyamount); // creates new questions window panel with question deck  
     p.setSize(50, 50); // sets panel size
      
     frame.add(p, BorderLayout.WEST); // adds the p to the frame and put it in the center. 
@@ -125,9 +125,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     east.setSize(450,500); // sets size of east panel
 
     east.add(progress, BorderLayout.NORTH); // adds the progressbar panel to the east panel
-    
-
-    
+ 
     frame.add(east, BorderLayout.EAST);// adds the panel to the frame on the west side
     east.setVisible(false);
    
