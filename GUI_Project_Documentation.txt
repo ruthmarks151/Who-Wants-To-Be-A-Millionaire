@@ -1,3 +1,4 @@
+Improvised Jeopardy
 Background
 Jeopardy has been one of the most popular game shows that people know of, and has been copied to develop other variations of it. Basically, you answer questions  and get points based on if you get it correct or not. Our game is a fusion of this and "Who wants to be a Millionaire" . This millionaire game also requires the player to answer question advance to further cash levels. At the end of both games the player leaves the game with x amount of money.
 How to run the program
@@ -7,7 +8,8 @@ The main limitation of this program is that once a lifeline is clicked you will 
 
 Developer's Guide 
 Overview
-In our program we have a few important classes. There is the Question, QuestionLoader, the QuestionDeck, and the QuestionWindowPanel. These are the main parts for the implementation of the questions into our program. There is also the JeapordyGUI and the EndScreenGUI. 
+In our program we have a few important classes. There is the Question, QuestionLoader,  QuestionDeck, and the QuestionWindowPanel. These question classes are used to construct the questions for the game. These are the main parts for the implementation of the questions into our program. There is also the JeapordyGUI, StartMenuGraphics  and the EndScreenGUI. These  classes make some of  the GUI components for our quiz game. We also have a progress bar class which makes the progress bar for the levels. There is a lifeline GUI and algorithm that will be discussed in detail later. The program also uses a player class, and a level class to help track the user's progress. We also have a CorrectlyClicked, CustomDialog  and RadioListener  class for the some of the actionListeners used.
+	
 QuestionDeck
 This is the core of the questions component because it adds all the questions into the program. Its tries to find corresponding questions that fit the criterion needed (Ex: point values, category), which it then loads into the program. This class functions as a deck of questions- hence the name.
 
@@ -15,3 +17,26 @@ Question
 What this file does is it constructs the question itself. It assigns the correct answer and the money value to a method so it can be accessed later . It also sets the point values, and it checks to see if the user has locked in the choice for the chosen answer( using a Boolean- true for locked and false for not ). This file also has the category of the question, levels, and money value stored.  It also shuffles the answers randomly to give different question choice orders each time.
 QuestionLoader
 This class loads the questions into a readable format character by character. It also tracks the file for the questions to see if it has reached the end of the text file. At first, the question being constructed and its parameters are defined as null, then the question is built. Each question object has a points, category, question, and an answer.
+QuestionWindowPanel
+The QuestionWindowPanel class constructs allows the radio buttons to be constructed for use. It also contains the actionlisteners used to make the components have a function. This class also tells the user (by use of the actionlistener) whether they have selected the correct answer or not. It also tells the user how much money they left with, if they do so. It also checks to see if the window screen size has been changed or not so the components will not get disorganised.
+CorrectlyClicked
+This may SEEM insignificant, but if you remove it everything breaks( A very crucial part of the program).
+CustomDialogue 
+Used to construct a yes or no dialogue box.
+EndScreenGUI
+This class is used for making the graphics for the end screen GUI. It shows the user a click to continue Jbutton, which then (using a Jdialogue box ) tells the user thanks for playing. It uses the actionlistener to determine if the user is ready to advance or not.
+JeapordyGUI
+This class is the start screen for our program. It contains two buttons - one for instructions and one to start the quiz game. It also implements the actionlistener to determine which buttons the user has selected.
+
+Level
+What this class does is it constructs the different levels of money you can get to. It also handles if you can advance to the next level or not, and has method to do so.
+lifelnGui
+This class contains the algorithms required for a basic lifeline implementation for our GUI. It contains a 50/50, phone a friend, and ask the audience lifelines for the user to select. The 50/50  lifeline eliminates two of the three incorrect choices given to the user. Phone a friend generates a message that contains an answer your friend selected to help you determine an answer. Your 'friend' has three confidence levels- and decides their answer based on it("I'm positive" gives the correct answer, "I'm pretty sure", gives 2 answers( one correct and incorrect) possible answers, and " I don't know" gives  3 possibilities (one correct and two incorrect)) . The ask the audience lifeline always gives the user the correct answer - but with a 75% chance of being correct based on the audience votes. This class also sets up the panel used for the buttons placed and creates them. It also contains actionlisteners  that allow the lifelines to be used and make them unusable once clicked. 
+Player
+This nifty class enables the user to have a name and give them a starting level(level 1).
+ProgressBar
+The ProgressBar class is a progress bar . It is the bar used to tell where the player is at for their monetary position in the game. This bar is vertical to simulate the well known "Who Wants to be a Millionaire?" game bar.
+RadioListener
+The main function of this class is to make the radio buttons to be used. It also contains  an actionlistener to tell if the radio button has been clicked or not. It also enables you to ALT click for a button to work instead of clicking it with the mouse. 
+StartMenuGraphics
+This is just the main background use for the program, made into a class to save some code. Just blue with the width and height of 1000 by 1000.
