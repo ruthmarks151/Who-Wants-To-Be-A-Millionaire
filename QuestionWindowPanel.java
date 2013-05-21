@@ -8,6 +8,7 @@ import javax.swing.Timer;
 import javax.swing.JScrollPane;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 import java.awt.Dimension;
 import java.awt.event.WindowStateListener;
 import java.awt.event.WindowEvent;
@@ -25,6 +26,7 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
   public QuestionWindowPanel(QuestionDeck questionDeck,ProgressBar progressbar) { 
     super();
     pb=progressbar;
+    pb.incrementBar();
     qd=questionDeck;
     q=qd.get();
     
@@ -66,16 +68,19 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
           System.out.println("Right Answer!");
           changeQuestion();
           
-        }else
-          System.out.println("Wrong Answer!");}
+        }else {
+                   JOptionPane.showMessageDialog(null, "You leave the game with $"+pb.dropBar(),"You Lose", JOptionPane.INFORMATION_MESSAGE);
+      
+        }
+      }
       
     }else if (e.getSource()==stop){
-      CustomDialog sure=new CustomDialog(null,true,"Are you sure you want to leave with $"+q.level.value());
+      CustomDialog sure=new CustomDialog(null,true,"Are you sure you want to leave with $"+pb.getMoney());
       if (sure.getAnswer()){
-        if(q.correct()){
-          System.out.println("You left the game with");
+        
+          JOptionPane.showMessageDialog(null, "You leave the game with $"+pb.getMoney(),"You Lose", JOptionPane.INFORMATION_MESSAGE);
           
-        }}}
+        }}
   }
   
   

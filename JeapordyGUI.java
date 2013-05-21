@@ -11,16 +11,16 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   
   
   JButton startbutton, instructionbutton;  // startbutton and instructionbutton
-
+  
   public static QuestionWindowPanel  p; // the panel for question window
   JFrame frame = new JFrame("IMPROVISED - JEA" +
-                              "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
- JPanel startmenues = new JPanel(); // creates a panel for the start menu
- ProgressBar moneyamount = new ProgressBar(); // creates an object from the progress bar class
- JPanel progress = new JPanel(); // creates new JPanel for the progress bar
- lifelnGui lifeline = new lifelnGui(); // creates an object from the lifeline gui
- JPanel east = new JPanel (); // creates new JPanel for the progress panel and the lifelin panel
- JPanel lifelines = new JPanel (); // creates new lifeline JPanel to put into the east panel
+                            "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
+  JPanel startmenues = new JPanel(); // creates a panel for the start menu
+  ProgressBar moneyamount = new ProgressBar(); // creates an object from the progress bar class
+  JPanel progress = new JPanel(); // creates new JPanel for the progress bar
+  LifelnGui lifeline = new LifelnGui(); // creates an object from the lifeline gui
+  JPanel east = new JPanel (); // creates new JPanel for the progress panel and the lifelin panel
+  
   
   public  JPanel startmenupanel(){ // start menu
     
@@ -28,9 +28,9 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     
     startbutton = new JButton ("Start"); // creates start button 
-     startbutton.addActionListener (this); // adds action listener
+    startbutton.addActionListener (this); // adds action listener
     startbutton.setPreferredSize(new Dimension(0,40)); // gives the buttons its size
-   
+    
     
     
     instructionbutton = new JButton ("Instructions"); // creates instructions button 
@@ -77,16 +77,17 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     }
     
     // startmenu button action listener
-   else if (e.getSource() == startbutton) 
+    else if (e.getSource() == startbutton) 
     {
-     startmenues.setVisible(false); // makes the startmenu gui disappear
-     p.setVisible(true); // makes the question panel gui appear
-     east.setVisible(true); // makes the east side of the question panel appear
+      startmenues.setVisible(false); // makes the startmenu gui disappear
+      p.setVisible(true); // makes the question panel gui appear
+      east.setVisible(true); // makes the east side of the question panel appear
+      lifeline.setVisible(true);
     }
     
-   
+    
   }
-
+  
   
   private void createAndShowGUI(){
     //creates and sets up the window
@@ -95,7 +96,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     frame.setLayout(new BorderLayout()); // creates a new border layout for the frame
     
-    frame.setSize(800,600); // sets frame to this size 
+    frame.setSize(1200,800); // sets frame to this size 
     
     east.setLayout(new BorderLayout()); // creates a new border layout for the frame east
     
@@ -107,32 +108,34 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     startmenues.add(backgroundss);
     JPanel startmenus = startmenupanel(); // creates new startmenu panel
     startmenues.add(startmenus, BorderLayout.SOUTH); // ads the start menu panel to this panel
-
+    
     
 //adding question GUI to this frame.     
     QuestionDeck qd = new QuestionDeck ();// creates new question deck
-     
+    
     qd.fill(); // fills the qd questiondeck
     p = new QuestionWindowPanel(qd,moneyamount); // creates new questions window panel with question deck  
     p.setSize(50, 50); // sets panel size
-     
-    frame.add(p, BorderLayout.WEST); // adds the p to the frame and put it in the center. 
+    
+    frame.add(p, BorderLayout.NORTH); // adds the p to the frame and put it in the center. 
     p.setVisible(false);
     
     progress.add(moneyamount); // adds the progressbar to the panel
     progress.setSize(50,100); // sets the panel size
     
-    east.setSize(450,500); // sets size of east panel
-
+    east.setSize(200,200); // sets size of east panel 
     east.add(progress, BorderLayout.NORTH); // adds the progressbar panel to the east panel
- 
+    
+    frame.add(lifeline,BorderLayout.WEST);
+    lifeline.setSize(100,100);
+    
     frame.add(east, BorderLayout.EAST);// adds the panel to the frame on the west side
     east.setVisible(false);
-   
+    lifeline.setVisible(false);
     frame.add (startmenues); // adds the startmenu and the back ground for the program
     
-   
-     //displays Frame/Window 
+    
+    //displays Frame/Window 
     frame.setVisible (true);
   }
   

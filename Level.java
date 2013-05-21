@@ -5,12 +5,11 @@ class Level{
   Level(){
     level=0;
   }
-  public int levelAt(int i){return levels[i];}
-  Level (int points){
-    System.out.println("Constructing points!");
-    setLevel(points);
-    System.out.println("Sucsess!");
+  Level(int position){
+  level=position;
   }
+  public int levelAt(int i){return levels[i];}
+ 
   public void setLevel(int points){
     for (int i=0;(points<levels[i])&&(i<14);i++){
       level=i;
@@ -26,8 +25,7 @@ class Level{
   }
   
   public int dropLevel(){
-    while((level+1)%5!=0)
-      level--;
+ level=(level+1)/5;
     return levels[level];
     
   }

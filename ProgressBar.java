@@ -31,6 +31,16 @@ public class ProgressBar extends JPanel{
     this.add(levelBox);
   }
   
+  public int dropBar(){
+  Level l= new Level(verticalbar.getValue());
+  return l.dropLevel();
+  }
+  
+   public int getMoney(){
+  Level l= new Level();
+  return l.levelAt(verticalbar.getValue()-1);
+  }
+  
   public void setBar(int newValue){ // a method that sets  a value to the vertical bar
     verticalbar.setValue(newValue); // sets the vertical bar to a specific value
   }
