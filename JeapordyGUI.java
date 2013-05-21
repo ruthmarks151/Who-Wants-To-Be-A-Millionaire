@@ -13,8 +13,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
   JButton startbutton, instructionbutton;  // startbutton and instructionbutton
   
   public static QuestionWindowPanel  p; // the panel for question window
-  JFrame frame = new JFrame("IMPROVISED - JEA" +
-                            "PORDY"); // creates a frame with the name of IMPROVISED - JEAPORDY
+  JFrame frame = new JFrame("Who Wants To Be A Millionaire"); // creates a frame with the name of IMPROVISED - JEAPORDY
   JPanel startmenues = new JPanel(); // creates a panel for the start menu
   ProgressBar moneyamount = new ProgressBar(); // creates an object from the progress bar class
   JPanel progress = new JPanel(); // creates new JPanel for the progress bar
@@ -96,7 +95,7 @@ public class JeapordyGUI extends JPanel implements ActionListener{
     
     frame.setLayout(new BorderLayout()); // creates a new border layout for the frame
     
-    frame.setSize(1200,800); // sets frame to this size 
+    frame.setSize(800,450); // sets frame to this size 
     
     east.setLayout(new BorderLayout()); // creates a new border layout for the frame east
     

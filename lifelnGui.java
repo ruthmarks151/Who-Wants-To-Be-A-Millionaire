@@ -9,10 +9,10 @@ public class LifelnGui extends JPanel implements ActionListener{
   
   JButton fiftyFiftyButton, phoneButton, askButton;
   JPanel totalGUI;
-  
+  Question q;
   public LifelnGui (){
     
-    
+    q=null;
     
     setLayout(null);
     setSize(250,200);
@@ -52,7 +52,7 @@ public class LifelnGui extends JPanel implements ActionListener{
     fiftyFiftyButton.setLocation(0, 0);
     fiftyFiftyButton.setSize(150, 30);
     fiftyFiftyButton.addActionListener(this);
-    add(fiftyFiftyButton);
+    buttonPanel.add(fiftyFiftyButton);
     
     // button for phone a friend
     phoneButton = new JButton("Phone a friend");
@@ -72,14 +72,16 @@ public class LifelnGui extends JPanel implements ActionListener{
     
   }
   
-  
+  void setQuestion(Question given){
+  q=given;
+  }
   public void actionPerformed(ActionEvent e) {
     
     
     
     if(e.getSource() == fiftyFiftyButton)
     {
-      JOptionPane.showMessageDialog(null, "The choices that are wrong are: " + fiftyFifty(0),"", JOptionPane.INFORMATION_MESSAGE); // displays the 50/50 message (a popup)
+      JOptionPane.showMessageDialog(null, "The choices that are wrong are: " + fiftyFifty(rightAnswer()),"", JOptionPane.INFORMATION_MESSAGE); // displays the 50/50 message (a popup)
       fiftyFiftyButton.setEnabled(false); // makes button unclickable when lifeline is used
     }
     else if(e.getSource() == phoneButton)
@@ -101,12 +103,9 @@ public class LifelnGui extends JPanel implements ActionListener{
     }
   }
   
-  public int rightAnswer()// take this out because its just for testing purposes
+  public int rightAnswer()
   {
-    
-    int rightAnswer = 0;
-    return rightAnswer;
-    
+    return q.rightAnswer(); 
   }
   
   // used for determining the confidence level of the friend
@@ -211,16 +210,16 @@ public class LifelnGui extends JPanel implements ActionListener{
   {
     
     if (number == 0)
-      return "a";
+      return "A";
     
     else if (number == 1)
-      return "b";
+      return "B";
     
     else if (number == 2)
-      return "c";
+      return "C";
     
     else
-      return "d";
+      return "D";
     
     
     

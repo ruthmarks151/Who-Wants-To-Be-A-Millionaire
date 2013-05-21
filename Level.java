@@ -25,7 +25,7 @@ class Level{
   }
   
   public int dropLevel(){
- level=(level+1)/5;
+ level=((level+1)/5)*5-1;
     return levels[level];
     
   }

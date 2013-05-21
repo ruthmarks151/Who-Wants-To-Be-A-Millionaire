@@ -23,12 +23,18 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
   private RadioListener r;
   private JButton lock, stop;
   ProgressBar pb;
+  LifeLineFrame lf;
+  
   public QuestionWindowPanel(QuestionDeck questionDeck,ProgressBar progressbar) { 
     super();
+    lf = new LifeLineFrame();
+    
     pb=progressbar;
     pb.incrementBar();
     qd=questionDeck;
     q=qd.get();
+    
+    lf.setQuestion(q);
     
     panelToButton = new HashMap<CorrectlyClicked, JButton>();
     
@@ -53,6 +59,7 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
   public void changeQuestion (){
     q=qd.get();
     r.changeQuestion(q);
+    lf.setQuestion(q);
     pb.incrementBar();
     revalidate();
     repaint();
@@ -69,8 +76,8 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
           changeQuestion();
           
         }else {
-                   JOptionPane.showMessageDialog(null, "You leave the game with $"+pb.dropBar(),"You Lose", JOptionPane.INFORMATION_MESSAGE);
-      
+          JOptionPane.showMessageDialog(null, "You leave the game with $"+pb.dropBar(),"You Lose", JOptionPane.INFORMATION_MESSAGE);
+          
         }
       }
       
@@ -78,9 +85,9 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
       CustomDialog sure=new CustomDialog(null,true,"Are you sure you want to leave with $"+pb.getMoney());
       if (sure.getAnswer()){
         
-          JOptionPane.showMessageDialog(null, "You leave the game with $"+pb.getMoney(),"You Lose", JOptionPane.INFORMATION_MESSAGE);
-          
-        }}
+        JOptionPane.showMessageDialog(null, "You leave the game with $"+pb.getMoney(),"You Win", JOptionPane.INFORMATION_MESSAGE);
+        
+      }}
   }
   
   
@@ -91,7 +98,7 @@ public class QuestionWindowPanel extends JPanel implements ActionListener,Window
   
   public void addRadioListener() {
     r = new RadioListener(q);
-    /* c.addActionListener(this); */
+    
     super.add(r); 
     
     
