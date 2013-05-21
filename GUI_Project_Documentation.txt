@@ -1,4 +1,5 @@
-Improvised Jeopardy
+Ryan, Tony ,Ronald
+Improvised Jeopardy        
 Background
 Jeopardy has been one of the most popular game shows that people know of, and has been copied to develop other variations of it. Basically, you answer questions  and get points based on if you get it correct or not. Our game is a fusion of this and "Who wants to be a Millionaire" . This millionaire game also requires the player to answer question advance to further cash levels. At the end of both games the player leaves the game with x amount of money.
 How to run the program
@@ -25,8 +26,9 @@ CustomDialogue
 Used to construct a yes or no dialogue box.
 EndScreenGUI
 This class is used for making the graphics for the end screen GUI. It shows the user a click to continue Jbutton, which then (using a Jdialogue box ) tells the user thanks for playing. It uses the actionlistener to determine if the user is ready to advance or not.
+
 JeapordyGUI
-This class is the start screen for our program. It contains two buttons - one for instructions and one to start the quiz game. It also implements the actionlistener to determine which buttons the user has selected.
+This class runs the program . It contains two buttons - one for instructions and one to start the quiz game. It then lead to the other classes used for the quiz game. It also implements the actionlistener to determine which buttons the user has selected.
 
 Level
 What this class does is it constructs the different levels of money you can get to. It also handles if you can advance to the next level or not, and has method to do so.
@@ -40,3 +42,7 @@ RadioListener
 The main function of this class is to make the radio buttons to be used. It also contains  an actionlistener to tell if the radio button has been clicked or not. It also enables you to ALT click for a button to work instead of clicking it with the mouse. 
 StartMenuGraphics
 This is just the main background use for the program, made into a class to save some code. Just blue with the width and height of 1000 by 1000.
+
+Suggestions for Improvement
+One of the main improvements for the program would be to make it have a nicer start menu, and GUI components. The overall program needs to have a better end screen display  to show the user their point total at the end of the game. It could also make the question difficulty increase with the levels, to make the game less random. The question classes could be also grouped together, since they relate to one another. The lifeline class could also be more interactive, by having charts, visuals, or more GUI components added add to it. The start screen could have a more noticeable title, to add to the overall look of it. The quiz game could also be resized, so it won't look as empty.
+
