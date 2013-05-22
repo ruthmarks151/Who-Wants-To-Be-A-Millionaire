@@ -9,9 +9,51 @@ nocancel500outputWhich of the following is not a mouse listener?MouseActio
 ""
 ""2000randomWhat do Jspiners do?GUI that allows the user to select predetermined values.GUI that allows the user to select user defined values.GUI that allows the user to select integer values.4000randomThe JFileChooser allows the user to select a:file or directory from a listclass from a previous programfile 8000
 randomMenu bars do not usually consist of:progress barsmenu objectsmenu bar objectsmenu items160000randomwhich method can enable or disable a JButton?setEnabledenableButtonUseButton
-320000randomWhat is the int passed as an argument during instantiation for?Telling the LayoutManager what size to make the box.Telling the System how many characters are not allowed in the box.Telling the System how many characters are allowed in the box.Telling the Label how far away to be.
-640000randomHow do you disable a widget on your GUI?.setEnabled(false);.setVisable(true);.setDisabled(true);.setPhasersTo(destroy);
-125000randomWhen comparing Strings in an if statement, what must we use?.compareTo()= =.sameAs().compare();
-250000randomHow do we pass options into the JComboBox?Pass in an array of Strings as an argument.Pass in all the options as individual String arguments.Pass in a text file as an argument.Pass in nothing.
-500000randomHow do we determine which option has been selected in a combo box?.getSelectedIndex() .getSelectedOption().getSelectedString().getplace();
-1000000randomHow do we set a radio button to be selected? setSelected(true);setSelected(false);setSelected();setEnabled(true);
+
+320000
+random
+What is the int passed as an argument during instantiation for?
+Telling the LayoutManager what size to make the box.
+Telling the System how many characters are not allowed in the box.
+Telling the System how many characters are allowed in the box.
+Telling the Label how far away to be.
+
+640000
+random
+How do you disable a widget on your GUI?
+.setEnabled(false);
+.setVisable(true);
+.setDisabled(true);
+.setPhasersTo(destroy);
+
+125000
+random
+When comparing Strings in an if statement, what must we use?
+.compareTo()= 
+=.
+sameAs().
+compare();
+
+250000
+random
+How do we pass options into the JComboBox?
+Pass in an array of Strings as an argument.
+Pass in all the options as individual String arguments.
+Pass in a text file as an argument.
+Pass in nothing.
+
+500000
+random
+How do we determine which option has been selected in a combo box?
+.getSelectedIndex() 
+.getSelectedOption()
+.getSelectedString()
+.getplace();
+
+1000000
+random
+How do we set a radio button to be selected? 
+setSelected(true);
+setSelected(false);
+setSelected();
+setEnabled(true);
