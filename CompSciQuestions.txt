@@ -5,10 +5,14 @@ setMajorTickSpacing
 setMajorTickSpace
 setMinorTickSpacing
 majorTickSpacingSet200inputWhat do JRadio buttons do?allow only one option to be tickedallow any option to be tickedallow multiple options to be tickedallow no options to be ticked300outputWhat is the default button for Jdialog?okyes
-nocancel500outputWhich of the following is not a mouse listener?MouseActionDetectorMouseListenerMouseMotionListenerMouseWheelListener1000outputWhich is more advanced to code?Grid bag layoutborder layout
-""
-""2000randomWhat do Jspiners do?GUI that allows the user to select predetermined values.GUI that allows the user to select user defined values.GUI that allows the user to select integer values.4000randomThe JFileChooser allows the user to select a:file or directory from a listclass from a previous programfile 8000
+nocancel
+500outputWhich of the following is not a mouse listener?MouseActionDetectorMouseListenerMouseMotionListenerMouseWheelListener
+1000outputWhich is more advanced to code?Grid bag layoutborder layout
+null
+null
+2000randomWhat do Jspiners do?GUI that allows the user to select predetermined values.GUI that allows the user to select user defined values.GUI that allows the user to select integer values.4000randomThe JFileChooser allows the user to select a:file or directory from a listclass from a previous programfile 8000
 randomMenu bars do not usually consist of:progress barsmenu objectsmenu bar objectsmenu items160000randomwhich method can enable or disable a JButton?setEnabledenableButtonUseButton
+buttonEnable
 
 320000
 random

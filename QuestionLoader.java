@@ -47,6 +47,7 @@ class QuestionLoader{
       value+=(char)read;//Builds the string char by char
       //System.out.println(value);
     }
+          System.out.println("Parseing"+value);
     points=Integer.parseInt(value);
     //System.out.println("Points Loaded");
     //Build the category
@@ -54,12 +55,14 @@ class QuestionLoader{
       checkEOF(read);  
       category+=(char)read;//Builds the string char by char
     }
+    System.out.println(category);
     //System.out.println("Category Loaded");
     //Build the question
     while ((read=in.read())!=13&&read!=10){//Runs until newline
       checkEOF(read);  
       question+=(char)read;//Builds the string char by char
     }
+    System.out.println(question);
     //System.out.println("Question Loaded");
     //Build all 4 answers
     for (int i=0;i<4;i++){//For each answer
@@ -68,6 +71,7 @@ class QuestionLoader{
         answers[i]+=(char)read;
         // System.out.println(i+"answer Loaded");
       }
+      System.out.println(answers[i]);
     }
     read=in.read();
     //System.out.println("Question Loaded!");
